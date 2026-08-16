@@ -1,5 +1,9 @@
 package cl.duoc;
 
+/**
+ * Clase que representa los pedidos de Comida en el sistema SpeedFast
+ * @author KatherineAvila
+ */
 public class PedidoComida extends Pedido {
     private boolean tieneMochila;
 
@@ -16,6 +20,10 @@ public class PedidoComida extends Pedido {
         this.tieneMochila = tieneMochila;
     }
 
+    /**
+     * Método sobreescrito de la clase base, con un mensaje
+     * adaptado al tipo de pedido comida
+     */
     @Override
     public void asignarRepartidor() {
         System.out.println("Pedido de comida: ");
@@ -24,10 +32,14 @@ public class PedidoComida extends Pedido {
 
     }
 
+    /**
+     *Método sobrecargado que asigna un repartidor al pedido de comida.
+     * simula la validación del sistema verificando si el repartidor cumple con el requisito de tener mochila térmica.
+     * @param nombreRepartidor Nombre del repartidor a evaluar y asignar
+     */
     public void asignarRepartidor(String nombreRepartidor) {
-        this.asignarRepartidor();
 
-        //Validacion requerimiento: tiene mochila
+        //Validación requerimiento: tiene mochila
         if (this.tieneMochila) {
             System.out.println("-> Pedido asignado a: " + nombreRepartidor);
 
@@ -38,8 +50,7 @@ public class PedidoComida extends Pedido {
 
     @Override
     public String toString() {
-        return "PedidoComida{" +
-                "tieneMochila=" + tieneMochila +
-                '}';
+        return
+                "¿Tiene Mochila?: " + tieneMochila;
     }
 }

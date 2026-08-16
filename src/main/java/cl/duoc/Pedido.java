@@ -1,5 +1,11 @@
 package cl.duoc;
 
+/**
+ * Clase base que representa la información general de los pedidos en
+ * el sistema SpeedFast.
+ * Cuenta con un método general 'asignarRepartidor()'
+ * @author KatherineAvila
+ */
 public class Pedido {
 
    private String idPedido;
@@ -37,16 +43,19 @@ public class Pedido {
         this.tipoPedido = tipoPedido;
     }
 
+    /**
+     * Metodo general destinado a sobreescribirse en las clases hijas
+     * para personalización
+     */
     public void asignarRepartidor(){
         System.out.println("Pedido asignando repartidor");
     }
 
     @Override
     public String toString() {
-        return "Pedido{" +
-                "idPedido='" + idPedido + '\'' +
-                ", direccionEntrega='" + direccionEntrega + '\'' +
-                ", tipoPedido='" + tipoPedido + '\'' +
-                '}';
+        return
+                "ID Pedido:" + idPedido + "\n" +
+                "Dirección de Entrega: " + direccionEntrega + "\n" +
+                "Tipo de Pedido: " + tipoPedido;
     }
 }
