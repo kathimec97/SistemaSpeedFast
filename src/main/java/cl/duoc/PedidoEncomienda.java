@@ -1,6 +1,6 @@
 package cl.duoc;
 
-import javax.sound.midi.Soundbank;
+
 
 /**
  * Clase que representa los pedidos de encomienda tales como paquetes y documentos
