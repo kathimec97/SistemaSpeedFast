@@ -1,22 +1,23 @@
 package cl.duoc;
 
 /**
- * Clase base que representa la información general de los pedidos en
+ * Clase base abstracta que representa la información general de los pedidos en
  * el sistema SpeedFast.
- * Cuenta con un método general 'asignarRepartidor()'
+ * Cuenta con un metodo concreto 'asignarRepartidor()', un metodo 'mostrarResumen()'
+ * y un metodo abstracto 'calcularTiempoEntrega()'
+ *
  * @author KatherineAvila
  */
-public class Pedido {
+public abstract class Pedido {
 
-   private String idPedido;
-   private String direccionEntrega;
-   private String tipoPedido;
+   protected String idPedido;
+   protected String direccionEntrega;
+   protected double distanciaKm;
 
-   public Pedido(String idPedido, String direccionEntrega, String tipoPedido){
+   public Pedido(String idPedido, String direccionEntrega, double distanciaKm) {
        this.idPedido = idPedido;
        this.direccionEntrega = direccionEntrega;
-       this.tipoPedido = tipoPedido;
-
+       this.distanciaKm = distanciaKm;
    }
 
     public String getIdPedido() {
@@ -35,14 +36,33 @@ public class Pedido {
         this.direccionEntrega = direccionEntrega;
     }
 
-    public String getTipoPedido() {
-        return tipoPedido;
+    public double getDistanciaKm() {
+        return distanciaKm;
     }
 
-    public void setTipoPedido(String tipoPedido) {
-        this.tipoPedido = tipoPedido;
+    public void setDistanciaKm(double distanciaKm) {
+        this.distanciaKm = distanciaKm;
     }
 
+    /**
+     * Metodo mostrarResumen() muestra un resumen de la información
+     * general de todos los pedidos
+     */
+    public void mostrarResumen(){
+        System.out.println("ID: "+ idPedido);
+        System.out.println("Direccion: "+ direccionEntrega);
+        System.out.println("Distancia: "+ distanciaKm);
+    }
+
+    /**
+     * Metodo abstracto para ser implementador de forma
+     * distinta en cada subclase.
+     * Calcula el tiempo de entrega según la distancia en km en cada tipo de pedido
+     */
+
+    public void calcularTiempoEntrega(){
+
+    }
     /**
      * Metodo general destinado a sobreescribirse en las clases hijas
      * para personalización
@@ -56,6 +76,6 @@ public class Pedido {
         return
                 "ID Pedido:" + idPedido + "\n" +
                 "Dirección de Entrega: " + direccionEntrega + "\n" +
-                "Tipo de Pedido: " + tipoPedido;
+                "Distancia: " + distanciaKm + "\n";
     }
 }
