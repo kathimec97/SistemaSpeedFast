@@ -7,9 +7,11 @@ package cl.duoc;
 public class PedidoComida extends Pedido {
     private boolean tieneMochila;
 
-    public PedidoComida(String idPedido, String direccionEntrega, String tipoPedido, boolean  tieneMochila) {
-        super(idPedido, direccionEntrega, tipoPedido);
+
+    public PedidoComida(String idPedido, String direccionEntrega, double distanciaKm, boolean  tieneMochila) {
+        super(idPedido, direccionEntrega, distanciaKm);
         this.tieneMochila = tieneMochila;
+
     }
 
     public boolean isTieneMochila() {
@@ -18,6 +20,27 @@ public class PedidoComida extends Pedido {
 
     public void setTieneMochila(boolean tieneMochila) {
         this.tieneMochila = tieneMochila;
+    }
+
+    /**
+     * Muestra el tipo de pedido y un resumen de los datos generales en consola
+     */
+    @Override
+    public void mostrarResumen() {
+        System.out.println("Pedido de Comida: \n");
+        super.mostrarResumen();
+    }
+
+    /**
+     * Calcula y muestra por consola el tiempo de entrega de un pedido
+     * dependiendo de la distancia en kilómetros.
+     */
+    @Override
+    public void calcularTiempoEntrega() {
+        int tiempoBase = 15;
+        int minutosExtras = 2;
+        int tiempoFinal = (int) (tiempoBase + Math.round(minutosExtras * getDistanciaKm()));
+        System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos..");
     }
 
     /**
