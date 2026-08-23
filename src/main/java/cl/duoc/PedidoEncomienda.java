@@ -12,8 +12,8 @@ public class PedidoEncomienda extends Pedido {
     private double peso;
     private String tipoEmbalaje;
 
-    public PedidoEncomienda( String idPedido, String direccionEntrega, String tipoPedido, double peso, String tipoEmbalaje) {
-        super(idPedido, direccionEntrega, tipoPedido);
+    public PedidoEncomienda( String idPedido, String direccionEntrega, double peso, double distanciaKm, String tipoEmbalaje) {
+        super(idPedido, direccionEntrega, distanciaKm);
         this.peso = peso;
         this.tipoEmbalaje = tipoEmbalaje;
 
@@ -34,6 +34,26 @@ public class PedidoEncomienda extends Pedido {
     public void setTipoEmbalaje(String tipoEmbalaje) {
         this.tipoEmbalaje = tipoEmbalaje;
     }
+    /**
+     * Muestra el tipo de pedido y un resumen de los datos generales en consola
+     */
+    @Override
+    public void mostrarResumen() {
+        System.out.println("Pedido Encomienda: \n");
+        super.mostrarResumen();
+    }
+
+    /**
+     * Calcula y muestra por consola el tiempo de entrega de un pedido
+     * dependiendo de la distancia en kilómetros.
+     */
+    @Override
+    public void calcularTiempoEntrega() {
+        int tiempoBase = 20;
+        double minutosExtras = 1.5;
+        int tiempoFinal = (int) (tiempoBase + Math.round(minutosExtras * getDistanciaKm()));
+        System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos..");
+    }
 
     /**
      * Método sobreescrito de la clase base Pedido, arroja un mensaje
@@ -41,7 +61,6 @@ public class PedidoEncomienda extends Pedido {
      */
     @Override
     public void asignarRepartidor() {
-        System.out.println("---Pedido encomienda---");
         System.out.println("Asignando repartidor...");
     }
 
