@@ -60,7 +60,7 @@ public abstract class Pedido {
      * Calcula el tiempo de entrega según la distancia en km en cada tipo de pedido
      */
 
-    public abstract int calcularTiempoEntrega();
+    public abstract void calcularTiempoEntrega();
 
     /**
      * Metodo general destinado a sobreescribirse en las clases hijas
