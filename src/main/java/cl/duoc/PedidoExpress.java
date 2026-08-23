@@ -10,8 +10,8 @@ public class PedidoExpress extends Pedido {
     private int tiempoLLegada;
     private boolean disponibilidadInmediata;
 
-    public PedidoExpress(String idPedido, String direccionEntrega, String tipoPedido, String tipoComercio, int tiempoLLegada, boolean disponibilidadInmediata) {
-        super(idPedido, direccionEntrega, tipoPedido);
+    public PedidoExpress(String idPedido, String direccionEntrega, double distanciaKm, String tipoComercio, int tiempoLLegada, boolean disponibilidadInmediata) {
+        super(idPedido, direccionEntrega, distanciaKm);
         this.tipoComercio = tipoComercio;
         this.disponibilidadInmediata =  disponibilidadInmediata;
         this.tiempoLLegada = tiempoLLegada;
@@ -40,15 +40,36 @@ public class PedidoExpress extends Pedido {
     public void setDisponibilidadInmediata(boolean disponibilidadInmediata) {
         this.disponibilidadInmediata = disponibilidadInmediata;
     }
+    /**
+     * Muestra el tipo de pedido y un resumen de los datos generales en consola
+     */
+    @Override
+    public void mostrarResumen() {
+        System.out.println("Pedido Express:");
+        super.mostrarResumen();
+    }
+    /**
+     * Calcula y muestra por consola el tiempo de entrega de un pedido
+     * dependiendo de la distancia en kilómetros.
+     */
+    @Override
+    public void calcularTiempoEntrega() {
+    int tiempo = 10;
+    int minutosExtras= 5;
+    if(getDistanciaKm() > 5) {
+        tiempo += minutosExtras;
+        System.out.println("Tiempo estimado de entrega " + tiempo + " minutos\n");
+    }else{
+     System.out.println("Tiempo estimado de entrega " + tiempo + " minutos\n");
+}
+    }
 
     /**
      * Método sobreescrito que muestra mensaje personalizado
      */
     @Override
     public void asignarRepartidor() {
-        System.out.println("---Pedido Express ---");
         System.out.println("Asignando Repartidor...");
-
         }
 
     /**
