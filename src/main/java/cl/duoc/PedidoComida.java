@@ -8,8 +8,8 @@ public class PedidoComida extends Pedido {
     private boolean tieneMochila;
 
 
-    public PedidoComida(String idPedido, String direccionEntrega, double distanciaKm, boolean  tieneMochila) {
-        super(idPedido, direccionEntrega, distanciaKm);
+    public PedidoComida(String idPedido, String direccionEntrega, double distanciaKm, String tipoPedido, boolean  tieneMochila) {
+        super(idPedido, direccionEntrega, distanciaKm, tipoPedido);
         this.tieneMochila = tieneMochila;
 
     }
@@ -27,7 +27,6 @@ public class PedidoComida extends Pedido {
      */
     @Override
     public void mostrarResumen() {
-        System.out.println("Pedido de Comida: \n");
         super.mostrarResumen();
     }
 
@@ -49,7 +48,6 @@ public class PedidoComida extends Pedido {
      */
     @Override
     public void asignarRepartidor() {
-        System.out.println("Pedido de comida: ");
         System.out.println("Asignando repartidor...");
 
 

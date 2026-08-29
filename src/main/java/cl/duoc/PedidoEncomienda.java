@@ -12,8 +12,8 @@ public class PedidoEncomienda extends Pedido {
     private double peso;
     private String tipoEmbalaje;
 
-    public PedidoEncomienda( String idPedido, String direccionEntrega, double peso, double distanciaKm, String tipoEmbalaje) {
-        super(idPedido, direccionEntrega, distanciaKm);
+    public PedidoEncomienda( String idPedido, String direccionEntrega, double peso, double distanciaKm, String tipoPedido, String tipoEmbalaje) {
+        super(idPedido, direccionEntrega, distanciaKm, tipoPedido);
         this.peso = peso;
         this.tipoEmbalaje = tipoEmbalaje;
 
@@ -39,7 +39,6 @@ public class PedidoEncomienda extends Pedido {
      */
     @Override
     public void mostrarResumen() {
-        System.out.println("Pedido Encomienda: \n");
         super.mostrarResumen();
     }
 

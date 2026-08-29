@@ -10,8 +10,8 @@ public class PedidoExpress extends Pedido {
     private int tiempoLLegada;
     private boolean disponibilidadInmediata;
 
-    public PedidoExpress(String idPedido, String direccionEntrega, double distanciaKm, String tipoComercio, int tiempoLLegada, boolean disponibilidadInmediata) {
-        super(idPedido, direccionEntrega, distanciaKm);
+    public PedidoExpress(String idPedido, String direccionEntrega, double distanciaKm, String tipoPedido, String tipoComercio, int tiempoLLegada, boolean disponibilidadInmediata) {
+        super(idPedido, direccionEntrega, distanciaKm, tipoPedido);
         this.tipoComercio = tipoComercio;
         this.disponibilidadInmediata =  disponibilidadInmediata;
         this.tiempoLLegada = tiempoLLegada;
@@ -45,7 +45,6 @@ public class PedidoExpress extends Pedido {
      */
     @Override
     public void mostrarResumen() {
-        System.out.println("Pedido Express:");
         super.mostrarResumen();
     }
     /**
