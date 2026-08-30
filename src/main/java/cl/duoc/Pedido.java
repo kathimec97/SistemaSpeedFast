@@ -123,7 +123,7 @@ public abstract class Pedido implements Cancelable, Rastreable, Despachable {
      * Calcula el tiempo de entrega según la distancia en km en cada tipo de pedido
      */
 
-    public abstract void calcularTiempoEntrega();
+    public abstract int calcularTiempoEntrega();
 
     /**
      * Método general destinado a sobreescribirse en las clases hijas

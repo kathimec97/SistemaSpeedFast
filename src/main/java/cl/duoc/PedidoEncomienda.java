@@ -47,11 +47,13 @@ public class PedidoEncomienda extends Pedido {
      * dependiendo de la distancia en kilómetros.
      */
     @Override
-    public void calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
         int tiempoBase = 20;
         double minutosExtras = 1.5;
         int tiempoFinal = (int) (tiempoBase + Math.round(minutosExtras * getDistanciaKm()));
         System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos..");
+
+        return tiempoFinal;
     }
 
     /**
@@ -74,7 +76,7 @@ public class PedidoEncomienda extends Pedido {
 
         if(tipoEmbalaje.equalsIgnoreCase("Documento")) {
             if(peso > 0.01 && peso <= 2.0) {
-                System.out.println("Repartidor asignado " + nombreRepartidor);
+                System.out.println("Repartidor asignado: " + nombreRepartidor);
                 setguardarRepartidor(nombreRepartidor);
                 super.tieneRepartidor = true;
             }else {
@@ -82,7 +84,7 @@ public class PedidoEncomienda extends Pedido {
             }
         } else if (tipoEmbalaje.equalsIgnoreCase("Paquete")) {
             if (peso >= 0.1 && peso <= 25.0) {
-                System.out.println("Repartidor asignado " + nombreRepartidor);
+                System.out.println("Repartidor asignado: " + nombreRepartidor);
                 setguardarRepartidor(nombreRepartidor);
                 super.tieneRepartidor = true;
             } else {

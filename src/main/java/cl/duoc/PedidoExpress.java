@@ -52,7 +52,7 @@ public class PedidoExpress extends Pedido {
      * dependiendo de la distancia en kilómetros.
      */
     @Override
-    public void calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
     int tiempo = 10;
     int minutosExtras= 5;
     if(getDistanciaKm() > 5) {
@@ -60,7 +60,10 @@ public class PedidoExpress extends Pedido {
         System.out.println("Tiempo estimado de entrega " + tiempo + " minutos.");
     }else{
      System.out.println("Tiempo estimado de entrega " + tiempo + " minutos.");
+
+
 }
+        return tiempo;
     }
 
     /**
@@ -81,7 +84,7 @@ public class PedidoExpress extends Pedido {
 
         if (tipoComercio.equalsIgnoreCase("Farmacia") && (tiempoLLegada <= 15)) {
             if (disponibilidadInmediata) {
-                System.out.println("Repartidor asignado " + nombreRepartidor);
+                System.out.println("Repartidor asignado: " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
                 setguardarRepartidor(nombreRepartidor);
                 super.tieneRepartidor = true;
@@ -90,7 +93,7 @@ public class PedidoExpress extends Pedido {
             }
         } else if (tipoComercio.equalsIgnoreCase("supermercado") && (tiempoLLegada <= 30)) {
             if (disponibilidadInmediata) {
-                System.out.println("Repartidor asignado " + nombreRepartidor);
+                System.out.println("Repartidor asignado: " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
                 setguardarRepartidor(nombreRepartidor);
                super.tieneRepartidor = true;

@@ -36,11 +36,12 @@ public class PedidoComida extends Pedido {
      * dependiendo de la distancia en kilómetros.
      */
     @Override
-    public void calcularTiempoEntrega() {
+    public int calcularTiempoEntrega() {
         int tiempoBase = 15;
         int minutosExtras = 2;
         int tiempoFinal = (int) (tiempoBase + Math.round(minutosExtras * getDistanciaKm()));
         System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos.");
+        return tiempoFinal;
     }
 
     /**
