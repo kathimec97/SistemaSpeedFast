@@ -4,6 +4,11 @@ import cl.duoc.interfaces.Cancelable;
 import cl.duoc.interfaces.Despachable;
 import cl.duoc.interfaces.Rastreable;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 /**
  * Clase base abstracta que representa la información general de los pedidos en
  * el sistema SpeedFast.
@@ -18,12 +23,15 @@ public abstract class Pedido implements Cancelable, Rastreable, Despachable {
    protected String direccionEntrega;
    protected double distanciaKm;
    protected String tipoPedido;
+   protected String guardarRepartidor;
+   private   List<String> historial = new ArrayList<>();
 
    public Pedido(String idPedido, String direccionEntrega, double distanciaKm, String tipoPedido) {
        this.idPedido = idPedido;
        this.direccionEntrega = direccionEntrega;
        this.distanciaKm = distanciaKm;
        this.tipoPedido = tipoPedido;
+
    }
 
     public String getIdPedido() {
@@ -51,19 +59,36 @@ public abstract class Pedido implements Cancelable, Rastreable, Despachable {
     }
 
     public String getTipoPedido() {return tipoPedido;}
+
+    public void setguardarRepartidor(String guardarRepartidor) {
+       this.guardarRepartidor = guardarRepartidor;
+    }
+
 /**
  * Muestra un mensaje por consola cuando el pedido haya sido despachado exitosamente
  */
     @Override
     public void despachar() {
+
         System.out.println("Pedido despachado correctamente");
-    }
-    @Override
-    public void cancelar() {
+        historial.add("- Pedido " + tipoPedido +  idPedido +" - entregado por " + guardarRepartidor);
     }
 
     @Override
-    public void verHistorial() {
+    public void cancelar() {
+        System.out.println("Cancelando pedido " + tipoPedido + " #" + idPedido + " ...");
+        System.out.println(">> Pedido cancelado correctamente");
+    }
+
+    @Override
+    public List<String> verHistorial() {
+        return new ArrayList<>(historial);
+    }
+
+    public void mostrarTodosHistorial() {
+        for (String verHistorial : verHistorial()) {
+            System.out.println(verHistorial);
+        }
 
     }
 
@@ -74,7 +99,7 @@ public abstract class Pedido implements Cancelable, Rastreable, Despachable {
     public void mostrarResumen(){
         System.out.println("Pedido de " + this.tipoPedido);
         System.out.println("ID: "+ idPedido);
-        System.out.println("Direccion: "+ direccionEntrega);
+        System.out.println("Dirección: "+ direccionEntrega);
         System.out.println("Distancia: "+ distanciaKm);
     }
 

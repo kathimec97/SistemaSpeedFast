@@ -83,6 +83,7 @@ public class PedidoExpress extends Pedido {
             if (disponibilidadInmediata) {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
+                setguardarRepartidor(nombreRepartidor);
             } else {
                 System.out.println("No hay repartidores disponibles en este momento.");
             }
@@ -90,6 +91,7 @@ public class PedidoExpress extends Pedido {
             if (disponibilidadInmediata) {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
+                setguardarRepartidor(nombreRepartidor);
             } else {
                 System.out.println("No hay repartidores disponibles en este momento.");
             }

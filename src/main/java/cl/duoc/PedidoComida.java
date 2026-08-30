@@ -63,6 +63,7 @@ public class PedidoComida extends Pedido {
         //Validación requerimiento: tiene mochila
         if (this.tieneMochila) {
             System.out.println("-> Pedido asignado a: " + nombreRepartidor);
+            setguardarRepartidor(nombreRepartidor);
 
         } else {
             System.out.println("-> Pedido en espera, buscando a un repartidor con mochila...");
