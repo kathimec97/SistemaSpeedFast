@@ -1,5 +1,10 @@
 package cl.duoc.interfaces;
+import java.util.List;
 
+/**
+ *Define el contrato para el seguimiento de los pedidos.
+ * @author Katherine Avila
+ */
 public interface Rastreable {
-    void verHistorial();
+    List<String> verHistorial();
 }

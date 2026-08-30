@@ -1,96 +1,87 @@
 package cl.duoc;
 
 
+import java.util.ArrayList;
+import java.util.List;
 
-
+/**
+ * Flujo de ejecución del programa SpeedFast
+ * @author Katherine Avila
+ */
 public class Main {
     public static void main(String[] args) {
 
-        /**
-         * Prueba de la Clase PedidoExpress
-*/
-    PedidoExpress p1 = new PedidoExpress("E01", "Lago Lanalhue 1280", 6, "Farmacia", 15, true);
-    PedidoExpress p2 = new PedidoExpress("E02", "Vicente Mendez 800", 12.5, "Farmacia", 30, true);
-    PedidoExpress p3 = new PedidoExpress("E03", "villa Rosario 200", 5, "Farmacia", 10, false);
-    PedidoExpress p4 = new PedidoExpress("E04", "Callejon Diagon 174", 4.5, "supermercado", 15, true);
-    PedidoExpress p5 = new PedidoExpress("E05", "TVA 000", 3.2, "Supermercado", 35, true);
-    PedidoExpress p6 = new PedidoExpress("E06", "Asgard 074", 8.2, "Supermercado", 20, false);
+List<Pedido> misPedidos = new ArrayList<>();
 
-    //tipo comercio: Farmacia,
-    p1.mostrarResumen();
-    p1.calcularTiempoEntrega();
-
-//tipo comercio: Farmacia
-    p2.mostrarResumen();
-    p2.calcularTiempoEntrega();
-
-//tipo comercio: Farmacia
-    p3.mostrarResumen();
-    p3.calcularTiempoEntrega();
-
-//tipo comercio: supermercado
-    p4.mostrarResumen();
-    p4.calcularTiempoEntrega();
-
-//tipo comercio: supermercado,
-        p5.mostrarResumen();
-        p5.calcularTiempoEntrega();
-
-//tipo comercio: supermercado
-        p6.mostrarResumen();
-        p6.calcularTiempoEntrega();
+        PedidoExpress e1 = new PedidoExpress("[E01]", "Lago Lanalhue 1280", 6, "Express", "Farmacia", 15, false);
+        PedidoExpress e2 = new PedidoExpress("[E02]", "Vicente Mendez 800", 12.5, "Express", "Supermercado", 30, true);
+        PedidoComida c3 = new PedidoComida("[C03]", "Eternia 548", 1, "Comida", false);
+        PedidoComida c4 = new PedidoComida("[C04]", "El Pantano 100", 7.3, "Comida", true);
+        PedidoEncomienda en5 = new PedidoEncomienda("[E05]", "Plataforma 934", 0.8, 6, "Encomienda", "Documento");
+        PedidoEncomienda en6 = new PedidoEncomienda("[E06]", "Velaris 210", 2.8, 8, "Encomienda", "Paquete");
 
 
-        /**
-         * Prueba clase PedidoComida
-        */
-        PedidoComida c1= new PedidoComida("C06", "Eternia 548", 1, true);
-       PedidoComida c2= new PedidoComida("C07", "El pantano 100", 7.3, false);
-
-        c1.mostrarResumen();
-        c1.calcularTiempoEntrega();
-
-        c2.mostrarResumen();
-        c2.calcularTiempoEntrega();
-
-        /**
-         * Prueba clase PedidoEncomienda
-        */
-        PedidoEncomienda e1 = new PedidoEncomienda("E01", "Plataforma 934",0.8,6,"Documento");
-        PedidoEncomienda e2 = new PedidoEncomienda("E02", "Velaris 210",2.8,8,"Documento");
-        PedidoEncomienda e3 = new PedidoEncomienda("E03", "Campamento Mestizo 400",3.0,5.3,"Documento");
-        PedidoEncomienda e4 = new PedidoEncomienda("E04", "Macondo 30",26.2,3.1,"Paquete");
-
-        PedidoEncomienda e5 = new PedidoEncomienda("E05", "Bedford Street 90",20,30,"Paquete");
-        PedidoEncomienda e6 = new PedidoEncomienda("E06", "Bleecker Street 177A",30,5.1,"Paquete");
-        PedidoEncomienda e7 = new PedidoEncomienda("E07", "Narnia 004",15,12.6,"Caja");
-
-//Tipo Embalaje: Documento, peso: 0.8 (dentro del rango)
+        //Pedidos Express--------------------
+            System.out.println("...........................");
         e1.mostrarResumen();
+        e1.asignarRepartidor();
+        e1.asignarRepartidor("Fabiola Ramirez");
         e1.calcularTiempoEntrega();
-
-//Tipo embalaje: documento, peso: 1.4 (dentro del rango)
+        e1.despachar();
+        misPedidos.add(e1);
+            System.out.println("..........................");
         e2.mostrarResumen();
+        e2.asignarRepartidor();
+        e2.asignarRepartidor("Carmen Landaeta");
         e2.calcularTiempoEntrega();
+        e2.despachar();
+        misPedidos.add(e2);
 
-//Tipo embalaje: documento, peso: 3.0 (fuera del rango)
-        e3.mostrarResumen();
-        e3.calcularTiempoEntrega();
+        //Pedidos Comida--------------------
+            System.out.println("...........................");
+        c3.mostrarResumen();
+        c3.asignarRepartidor();
+        c3.asignarRepartidor("Adam");
+        c3.calcularTiempoEntrega();
+        c3.despachar();
+        misPedidos.add(c3);
+            System.out.println("...........................");
+        c4.mostrarResumen();
+        c4.asignarRepartidor();
+        c4.asignarRepartidor("Sherk");
+        c4.calcularTiempoEntrega();
+        c4.despachar();
+        misPedidos.add(c4);
+            System.out.println("...........................");
+        //Pedidos Encomienda
+        en5.mostrarResumen();
+        en5.asignarRepartidor();
+        en5.asignarRepartidor("Hagrid");
+        en5.calcularTiempoEntrega();
+        en5.despachar();
+        misPedidos.add(en5);
+            System.out.println("...........................");
+        en6.mostrarResumen();
+        en6.asignarRepartidor();
+        en6.asignarRepartidor("Rhysand");
+        en6.calcularTiempoEntrega();
+        en6.despachar();
+        misPedidos.add(en6);
+            System.out.println("...........................");
 
-  //Tipo embalaje: sobre (equivocado), peso: 0.2 (dentro del rango)
-        e4.mostrarResumen();
-        e4.calcularTiempoEntrega();
+        // ----- Cancelar Pedidos-----
 
-        //tipo embalaje: Paquete, peso: 20 (dentro del rango)
-        e5.mostrarResumen();
-        e5.calcularTiempoEntrega();
+            //No tiene disponibilidad
+            e1.cancelar();
+            //No tiene mochila
+            c3.cancelar();
+            System.out.println("...........................");
 
-        //tipo Embalaje: paquete, peso: 30 (fuera del rango)
-        e6.mostrarResumen();
-        e6.calcularTiempoEntrega();
-
-//tipo embalaje: Caja (equivocado), peso: 15 (dentro del rango)
-        e7.mostrarResumen();
-        e7.calcularTiempoEntrega();
-    }
+        //------ Historial de Pedidos-----
+        for(Pedido p : misPedidos){
+            for(String evento : p.verHistorial()) {
+                System.out.println(evento);
+            }
+        }
+}
 }

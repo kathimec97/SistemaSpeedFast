@@ -57,9 +57,9 @@ public class PedidoExpress extends Pedido {
     int minutosExtras= 5;
     if(getDistanciaKm() > 5) {
         tiempo += minutosExtras;
-        System.out.println("Tiempo estimado de entrega " + tiempo + " minutos\n");
+        System.out.println("Tiempo estimado de entrega " + tiempo + " minutos.");
     }else{
-     System.out.println("Tiempo estimado de entrega " + tiempo + " minutos\n");
+     System.out.println("Tiempo estimado de entrega " + tiempo + " minutos.");
 }
     }
 
@@ -84,6 +84,7 @@ public class PedidoExpress extends Pedido {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
                 setguardarRepartidor(nombreRepartidor);
+                super.tieneRepartidor = true;
             } else {
                 System.out.println("No hay repartidores disponibles en este momento.");
             }
@@ -92,6 +93,7 @@ public class PedidoExpress extends Pedido {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 System.out.println("Tu repartidor esta a: " + getTiempoLLegada() + " minutos.");
                 setguardarRepartidor(nombreRepartidor);
+               super.tieneRepartidor = true;
             } else {
                 System.out.println("No hay repartidores disponibles en este momento.");
             }

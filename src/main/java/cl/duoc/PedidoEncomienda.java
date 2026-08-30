@@ -76,6 +76,7 @@ public class PedidoEncomienda extends Pedido {
             if(peso > 0.01 && peso <= 2.0) {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 setguardarRepartidor(nombreRepartidor);
+                super.tieneRepartidor = true;
             }else {
                 System.out.println("Excede peso como Documento, por favor elija la opción 'Paquete' ");
             }
@@ -83,6 +84,7 @@ public class PedidoEncomienda extends Pedido {
             if (peso >= 0.1 && peso <= 25.0) {
                 System.out.println("Repartidor asignado " + nombreRepartidor);
                 setguardarRepartidor(nombreRepartidor);
+                super.tieneRepartidor = true;
             } else {
                 System.out.println("Excede peso para repartidor estándar.");
             }

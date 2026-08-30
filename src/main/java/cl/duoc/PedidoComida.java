@@ -8,6 +8,7 @@ public class PedidoComida extends Pedido {
     private boolean tieneMochila;
 
 
+
     public PedidoComida(String idPedido, String direccionEntrega, double distanciaKm, String tipoPedido, boolean  tieneMochila) {
         super(idPedido, direccionEntrega, distanciaKm, tipoPedido);
         this.tieneMochila = tieneMochila;
@@ -39,7 +40,7 @@ public class PedidoComida extends Pedido {
         int tiempoBase = 15;
         int minutosExtras = 2;
         int tiempoFinal = (int) (tiempoBase + Math.round(minutosExtras * getDistanciaKm()));
-        System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos..");
+        System.out.println("Tiempo estimado de entrega: " + tiempoFinal + " minutos.");
     }
 
     /**
@@ -64,6 +65,7 @@ public class PedidoComida extends Pedido {
         if (this.tieneMochila) {
             System.out.println("-> Pedido asignado a: " + nombreRepartidor);
             setguardarRepartidor(nombreRepartidor);
+            super.tieneRepartidor = true;
 
         } else {
             System.out.println("-> Pedido en espera, buscando a un repartidor con mochila...");
